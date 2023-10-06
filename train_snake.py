@@ -9,7 +9,7 @@ action_space = 4
 obs_space = (35, )
 # obs_space = (1, 5, 5)
 
-perso = True
+perso = True # set to true for numpy agent
 
 BATCH_SIZE = 250
 TARGET_SCORE = 350

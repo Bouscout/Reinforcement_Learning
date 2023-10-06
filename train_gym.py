@@ -14,7 +14,8 @@ seed = 10
 
 np.random.seed(seed)
 
-Perso = True
+Perso = True # set this to true for numpy agent
+
 INTERVAL = 100
 BUFFER = 100_000
 
@@ -24,7 +25,8 @@ EPI_STEPS = 1000
 
 TARGET_SCORE = 200
 
-env = gym.make("CartPole-v1")
+env_name = "CartPole-v1"
+env = gym.make(env_name)
 # env = gym.make("LunarLander-v2")
 
 action_space = env.action_space.n
@@ -32,14 +34,9 @@ obs_space = env.observation_space.shape[0]
 obs_space = (obs_space, ) # making it a tuple
 
 if Perso :
-    # agent = Agent_PPO(action_space, obs_space, BUFFER, use_next_state=True)
-    # agent = Agent_policy_v3(action_space, obs_space, BUFFER, use_next_state=True)
-    agent = Agent_DQN(action_space, obs_space, BUFFER, use_next_state=True)
+    agent = Agent_PPO(action_space, obs_space, BUFFER, use_next_state=True)
 else :
     agent = Agent_PPO_torch(action_space, obs_space, BUFFER, use_next_state=True)
-    # agent = tf_ppo_original_agent(action_space, obs_space, BUFFER, use_next_state=True)
-    # agent = Agent_DQN(action_space, obs_space, BUFFER, use_next_state=True)
-    # agent = Agent_DeepQNetwork_torch(action_space, obs_space, BUFFER, use_next_state=True)
 
 agent.auto_report = True
 
