@@ -24,7 +24,7 @@ class network():
             'tanh' : tanh,
             'relu' : Relu,
         }
-        self.activ_function = activations_choice[activation] # defining global activation layer
+        self.activ_function = activations_choice[activation.lower()] # defining global activation layer
  
         self.learning_rate = learning_rate
 
